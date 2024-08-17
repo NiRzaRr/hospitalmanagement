@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+      @apply w-1.5 h-1.5
+    }
+  
+    .scrollbar::-webkit-scrollbar-track {
+      @apply bg-slate-300 rounded-3xl
+    }
+    
+    .scrollbar::-webkit-scrollbar-track:hover {
+        @apply bg-slate-200
+      }
+    .scrollbar::-webkit-scrollbar-thumb {
+      @apply bg-slate-500 rounded-3xl
+    }
+  
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+      @apply bg-slate-400
+    }
+    .menu-transition {
+      transition: transform 0.3s ease-in-out;
+    }
+    .tnr{
+      
+        font-family:  "Times New Roman";
+      
+    }
+  }
+  
