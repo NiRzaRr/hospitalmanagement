@@ -48,7 +48,7 @@ function Header() {
               <LogoutBtn className="hidden md:block place-self-center h-3/4 md:w-2/5 lg:w-1/3 bg-gradient-to-r from-red-600 to-red-200 hover:from-red-200 hover:to-red-600 md:p-0.5 lg:p-2 md:text-base lg:text-lg  lg:font-medium ml-5"/>
             
           )}
-          {admin&& <div className="block md:hidden col-start-3 place-self-end self-center mr-4 font-extrabold" onClick={() => {setHam(!ham)} }> {ham?(< RxCross2/>):<RxHamburgerMenu />}</div>}
+          {(admin || guestStatus)&& <div className="block md:hidden col-start-3 place-self-end self-center mr-4 font-extrabold" onClick={() => {setHam(!ham)} }> {ham?(< RxCross2/>):<RxHamburgerMenu />}</div>}
         <ul className={`z-10 fixed flex  flex-col justify-around top-[7%] right-0 h-1/2 bg-slate-800/55 transition-all duration-300 ${ham ? 'w-1/3' : 'w-0'}`}> 
         <li className=" rounded-xl group text-center h-7" onClick={() =>{setHam(false)}}>
             <Link to="/">HOME</Link>
