@@ -40,10 +40,11 @@ function VisitForm({visitInfo, stateChange, visitChange}) {
 //    return setAddmedi("")
 //   }
 useEffect(() => {
-        axios.get('https://mocki.io/v1/7a5e36ce-4e34-4d3d-864d-7e5aa356777a').then((response) => {
-          setMedicines(response.data.medicines);
+        axios.get('https://run.mocky.io/v3/4ee9ca1d-3c72-45e2-8d1a-6423a0d1c7f9').then((response) => {
+          setMedicines(response.data);
           (visitInfo && visitInfo.medicine) && setAddmedi(visitInfo.medicine);
-        });
+        })
+        .catch(error => console.log(error));
       }, []); 
       useEffect(() => {
         const subscription = watch((value, { name }) => {
@@ -62,7 +63,7 @@ useEffect(() => {
         if (medication) {
           clearTimeout(timeout);
           timeout = setTimeout(() => {
-            const filtered = medicines.filter((t) =>{return(t.name.toLowerCase().includes(medication.toLowerCase()))});
+            const filtered = medicines.filter((t) =>{return(t.medicine.toLowerCase().includes(medication.toLowerCase()))});
             setFilteredmedi(filtered); 
             console.log(filtered);
           }, 500);
@@ -186,7 +187,7 @@ useEffect(() => {
               <ul className='h-20 w-full lg:h-24 overflow-auto scrollbar '> 
                 {filteredmedi && filteredmedi.map((data) => (
                   // {console.log(data)}
-                  <li key={data.id} onClick={(e) =>{setMedication(e)}} className=" bg-yellow-50 border-2 border-gray-300 rounded-md hover:cursor-pointer">{data.name}</li>
+                  <li key={data.id} onClick={(e) =>{setMedication(e)}} className=" bg-yellow-50 border-2 border-gray-300 rounded-md hover:cursor-pointer">{data.medicine}</li>
                 ))}             
               </ul>
               </div>

@@ -35,9 +35,9 @@ export default function AddForm({info}) {
   useEffect(() => {
     ;(async () => {
       try {
-        const response = await axios.get('https://mocki.io/v1/7a5e36ce-4e34-4d3d-864d-7e5aa356777a')
-        console.log(response.data.medicines)
-         medicines = response.data.medicines;
+        const response = await axios.get('https://run.mocky.io/v3/4ee9ca1d-3c72-45e2-8d1a-6423a0d1c7f9')
+        console.log(response.data)
+         medicines = response.data;
         (info && info.medicine) && setAddmedi([...info.medicine])
       } catch (error) {
         console.log(error);
@@ -94,7 +94,7 @@ export default function AddForm({info}) {
      if (medication) {
        clearTimeout(timeout);
        timeout = setTimeout(() => {
-         let filtered = medicines.filter((t) =>{return(t.name.toLowerCase().includes(medication.toLowerCase()))});
+         let filtered = medicines.filter((t) =>{return(t.medicine.toLowerCase().includes(medication.toLowerCase()))});
            setFilteredmedi(filtered); 
       
        }, 500);
@@ -251,7 +251,7 @@ export default function AddForm({info}) {
               <ul className='h-20 md:h-24 lg:h-28 overflow-auto scrollbar '> 
                 {filteredmedi && filteredmedi.map((data) => (
                  
-                  <li key={data.id} onClick={(e) =>{setMedication(e)}} className=" bg-yellow-50 border-2 border-gray-300 rounded-md hover:cursor-pointer">{data.name}</li>
+                  <li key={data.id} onClick={(e) =>{setMedication(e)}} className=" bg-yellow-50 border-2 border-gray-300 rounded-md hover:cursor-pointer">{data.medicine}</li>
                 ))}             
               </ul>
               </div>
