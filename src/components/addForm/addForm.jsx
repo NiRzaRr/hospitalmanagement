@@ -35,7 +35,7 @@ export default function AddForm({info}) {
   useEffect(() => {
     ;(async () => {
       try {
-        const response = await axios.get('https://run.mocky.io/v3/4ee9ca1d-3c72-45e2-8d1a-6423a0d1c7f9')
+        const response = await axios.get('https://medicines.free.beeceptor.com/')
         console.log(response.data)
          medicines = response.data;
         (info && info.medicine) && setAddmedi([...info.medicine])

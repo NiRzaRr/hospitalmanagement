@@ -40,7 +40,7 @@ function VisitForm({visitInfo, stateChange, visitChange}) {
 //    return setAddmedi("")
 //   }
 useEffect(() => {
-        axios.get('https://run.mocky.io/v3/4ee9ca1d-3c72-45e2-8d1a-6423a0d1c7f9').then((response) => {
+        axios.get('https://medicines.free.beeceptor.com/').then((response) => {
           setMedicines(response.data);
           (visitInfo && visitInfo.medicine) && setAddmedi(visitInfo.medicine);
         })
